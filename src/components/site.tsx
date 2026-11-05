@@ -49,7 +49,7 @@ export function Nav({ home = false }: { home?: boolean }) {
         <a href={home ? "#how" : "/he#how"} className="hidden hover:text-ink sm:inline">איך זה עובד</a>
         <a href={home ? "#price" : "/he#price"} className="hidden hover:text-ink sm:inline">מחירים</a>
         <a href={home ? "#faq" : "/he#faq"} className="hidden hover:text-ink sm:inline">שאלות</a>
-        <a href={home ? "#download" : "/he#download"} className="rounded-full border-[1.5px] border-ink px-4 py-2 text-[14px] font-medium text-ink hover:bg-fill">להורדה</a>
+        <a href={home ? "#download" : "/he#download"} className="rounded-full border-[1.5px] border-ink px-4 py-2 text-[14px] font-medium text-ink hover:bg-fill">{APP_STORE_LIVE ? "להורדה" : "בקרוב לאייפון"}</a>
       </nav>
     </header>
   );

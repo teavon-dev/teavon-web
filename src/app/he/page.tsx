@@ -1,15 +1,29 @@
-import { Footer, Nav, StoreButton } from "@/components/site";
+import { APP_STORE_LIVE, Footer, Nav, StoreButton, SUPPORT_EMAIL } from "@/components/site";
 import { ScaleDemo } from "@/components/scale-demo";
 
 function Caption() {
   return (
-    <div className="rounded-[20px] bg-surface p-4 text-left text-[14px] leading-[1.55] text-[#333] shadow-[0_10px_30px_-18px_rgba(0,0,0,.25)]" dir="ltr">
+    <div className="rounded-[20px] bg-surface p-4 text-left text-[14px] leading-[1.55] text-ink shadow-[0_10px_30px_-18px_rgba(0,0,0,.25)]" dir="ltr">
       <b className="mb-1 block text-[12px] font-medium text-muted">@cooking.with.noa · Reels</b>
       Best shakshuka ever 🍳 3 tbsp olive oil, 1 onion, 2 red peppers, 4 eggs, 1 can tomatoes… full recipe below 👇
       <span className="mt-2 block" dir="rtl">
         <span className="rounded-full bg-fill px-2 py-0.5 text-[11px] font-bold text-muted">דוגמה</span>
       </span>
     </div>
+  );
+}
+
+// Until the App Store link is live: a real way to wait, with the address written out (mailto alone does
+// nothing on an iPhone without a mail account).
+function Notify() {
+  if (APP_STORE_LIVE) return null;
+  return (
+    <>
+      תודיעו לי כשזה עולה:{" "}
+      <a href={`mailto:${SUPPORT_EMAIL}?subject=${encodeURIComponent("תודיעו לי כש־Teavon עולה")}`} className="font-medium text-ink underline underline-offset-2">
+        <span className="num">{SUPPORT_EMAIL}</span>
+      </a>
+    </>
   );
 }
 
@@ -38,23 +52,27 @@ export default function Home() {
       <Nav home />
       <main>
         {/* 1 · The mechanism: a messy reel caption next to the real recipe screen it becomes */}
-        <section className="mx-auto grid max-w-[1160px] items-center gap-12 px-4 pb-20 pt-8 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:pt-14">
-          <div>
-            <h1 className="text-[44px] font-extrabold leading-[1.04] tracking-tight sm:text-[64px] lg:text-[76px]">
+        <section className="mx-auto grid max-w-[1160px] items-center gap-8 px-4 pb-20 pt-6 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:gap-x-12 lg:gap-y-8 lg:pt-14 lg:[grid-template-areas:'t_v'_'c_v']">
+          <div className="lg:[grid-area:t] lg:self-end">
+            <h1 className="text-[38px] font-extrabold leading-[1.04] tracking-tight sm:text-[64px] lg:text-[76px]">
               ראיתם מתכון ברילס?
               <span className="block font-light">שתפו. הוא נשמר בעברית.</span>
             </h1>
             <p className="mt-6 max-w-[34ch] text-[18px] leading-[1.6] text-muted sm:text-[19px]">
-              המצרכים, הכמויות והשלבים מכל סרטון באינסטגרם ובטיקטוק, במחברת אחת. עם סימון בשרי, חלבי או פרווה.
+              המצרכים, הכמויות והשלבים מהרילס של אינסטגרם וטיקטוק, במחברת אחת. עם סימון בשרי, חלבי או פרווה.
             </p>
-            <div id="download" className="mt-8 scroll-mt-24">
-              <StoreButton />
-              <p className="mt-3 text-[13px] text-muted">5 ייבואים בשבוע בחינם. לאייפון.</p>
-            </div>
           </div>
-          <div className="grid grid-cols-2 items-center gap-4 sm:grid-cols-[230px_1fr] sm:gap-6">
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:grid-cols-[200px_auto_300px] sm:gap-4 lg:[grid-area:v]">
             <Caption />
+            <span className="text-[26px] font-light text-accent" aria-hidden="true">←</span>
             <Shot src="/img/02-recipe-top.jpg" alt="מתכון שקשוקה שיובא ל־Teavon: מצרכים, כמויות וסימון פרווה" className="max-w-[300px]" />
+          </div>
+          <div id="download" className="scroll-mt-24 lg:[grid-area:c] lg:self-start">
+            <StoreButton />
+            <p className="mt-3 text-[13px] text-muted">
+              5 ייבואים בשבוע בחינם. לאייפון.{" "}
+              <Notify />
+            </p>
           </div>
         </section>
 
@@ -71,7 +89,7 @@ export default function Home() {
                 <p className="mt-2 text-[16px] text-muted">או מדביקים את הקישור באפליקציה.</p>
               </li>
               <li className="order-first md:order-none">
-                <Shot src="/img/04-import.jpg" alt="מסך הייבוא: קוראים את הפוסט, מאתרים מצרכים, מסדרים שלבים" className="mx-auto max-w-[280px]" />
+                <Shot src="/img/04-import-steps.jpg" alt="מסך הייבוא: קוראים את הפוסט, מאתרים מצרכים, מסדרים שלבים, מתרגמים לעברית" className="mx-auto max-w-[300px]" />
               </li>
               <li>
                 <p className="text-[15px] font-bold text-accent-deep">אחרי כמה שניות</p>
@@ -90,7 +108,7 @@ export default function Home() {
               <span className="block font-light">הכמויות מתעדכנות.</span>
             </h2>
             <p className="mt-5 max-w-[36ch] text-[18px] leading-[1.6] text-muted">
-              בוחרים כמה מכינים, והמצרכים מחושבים מחדש. אפשר גם לעבור בין גרמים לכוסות. נסו כאן:
+              בוחרים כמה מכינים, והמצרכים מחושבים מחדש. נסו כאן:
             </p>
           </div>
           <ScaleDemo />
@@ -120,10 +138,9 @@ export default function Home() {
                 תכנון ארוחות לכל השבוע, רשימת קניות שמסודרת לפי מחלקות בסופר, מצב בישול שלב אחרי שלב, ותיקיות.
               </p>
             </div>
-            <div className="grid grid-cols-[1fr_1.15fr_1fr] items-end gap-3 sm:gap-5">
-              <Shot src="/img/01-home.jpg" alt="המחברת: כל המתכונים שיובאו" />
-              <Shot src="/img/05-plan.jpg" alt="תכנון ארוחות לשבוע" />
-              <Shot src="/img/06-grocery.jpg" alt="רשימת קניות לפי מחלקות" />
+            <div className="grid grid-cols-[1.2fr_1fr] items-end gap-4 sm:gap-6">
+              <Shot src="/img/01-home.jpg" alt="המחברת: כל המתכונים שיובאו" className="max-w-[310px]" />
+              <Shot src="/img/06-grocery.jpg" alt="רשימת קניות לפי מחלקות (Teavon+)" className="mb-10 max-w-[250px]" />
             </div>
           </div>
         </section>
@@ -131,7 +148,7 @@ export default function Home() {
         {/* 5 · Pricing: real prices, one plan highlighted, one filled action */}
         <section id="price" className="mx-auto max-w-[1160px] scroll-mt-20 px-4 py-24 sm:px-6">
           <h2 className="text-[34px] font-extrabold leading-tight tracking-tight sm:text-[44px]">מתחילים בחינם.</h2>
-          <div className="mt-10 grid gap-6 md:grid-cols-[1fr_1.25fr]">
+          <div className="mt-10 grid items-start gap-6 md:grid-cols-[1fr_1.25fr]">
             <div className="rounded-[24px] border border-line p-7">
               <p className="text-[20px] font-bold">חינם</p>
               <p className="mt-1 text-[15px] text-muted">לתמיד</p>
@@ -141,6 +158,7 @@ export default function Home() {
                 <li>כמויות לפי מספר המנות</li>
                 <li>סימון בשרי, חלבי או פרווה</li>
               </ul>
+              <p className="mt-6 text-[14px] text-muted">בלי כרטיס אשראי. משדרגים רק אם רוצים.</p>
             </div>
             <div className="rounded-[24px] bg-ink p-7 text-white">
               <div className="flex items-center justify-between">
@@ -196,6 +214,7 @@ export default function Home() {
             <span className="block font-light">כבר יהיה מתכון.</span>
           </h2>
           <div className="mt-8 flex justify-center"><StoreButton /></div>
+          <p className="mt-3 text-[13px] text-muted"><Notify /></p>
         </section>
       </main>
       <Footer />

@@ -10,8 +10,10 @@ const ITEMS: [number | null, string, string][] = [
   [2, "", "פלפלים אדומים"],
   [3, "שיני", "שום"],
   [1, "כפית", "פפריקה מתוקה"],
+  [1, "כפית", "כמון"],
   [800, "גרם", "עגבניות מרוסקות"],
   [6, "", "ביצים"],
+  [null, "", "פטרוזיליה לקישוט"],
 ];
 
 function fmt(n: number) {
@@ -26,7 +28,7 @@ function fmt(n: number) {
 export function ScaleDemo() {
   const [n, setN] = useState(BASE);
   const btn =
-    "grid h-11 w-11 place-items-center rounded-full bg-fill text-[22px] font-medium text-ink transition-colors duration-150 hover:bg-[#e4e4de] disabled:opacity-40";
+    "grid h-11 w-11 place-items-center rounded-full bg-fill text-[22px] font-medium text-ink transition-colors duration-150 hover:bg-line disabled:opacity-40";
   return (
     <div className="rounded-[24px] bg-surface p-5 shadow-[0_10px_30px_-18px_rgba(0,0,0,.25)] sm:p-7">
       <div className="flex items-center justify-between gap-4">

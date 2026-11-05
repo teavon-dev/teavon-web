@@ -5,9 +5,9 @@
   --bg: #fafaf8;
   --surface: #ffffff;
   --fill: #efefeb;
-  --line: #e4e4de;
+  --line: #ecece7;
   --ink: #141414;
-  --muted: #6b6b66; /* 5.4:1 on bg */
+  --muted: #6b6b66; /* 5.1:1 on bg, 5.35:1 on white */
   --accent: #f25c05; /* brand orange, <= 5% of the screen */
   --accent-deep: #b84300; /* orange text on light backgrounds: 4.9:1 on bg */
   --meat: #c2410c;

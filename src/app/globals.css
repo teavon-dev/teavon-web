@@ -1,31 +1,41 @@
 @import "tailwindcss";
 
+/* Teavon design system (teavon/design/DESIGN.md): near-white, ink pill, orange only as a touch. */
 :root {
-  --background: #fafaf9;
-  --foreground: #0f172a;
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --fill: #efefeb;
+  --line: #e4e4de;
+  --ink: #141414;
+  --muted: #6b6b66; /* 5.4:1 on bg */
+  --accent: #f25c05; /* brand orange, <= 5% of the screen */
+  --accent-deep: #b84300; /* orange text on light backgrounds: 4.9:1 on bg */
+  --meat: #c2410c;
+  --dairy: #2f6fdb;
+  --pareve: #15803d;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: #ff6b00;
-  --color-primary-foreground: #ffffff;
-  --font-sans: var(--font-work-sans);
-  --font-heading: var(--font-outfit);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fill: var(--fill);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-meat: var(--meat);
+  --color-dairy: var(--dairy);
+  --color-pareve: var(--pareve);
+  --font-sans: var(--font-heebo);
 }
+
+html { background: var(--bg); color: var(--ink); }
+body { font-family: var(--font-heebo), system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 6px; }
+.screen { border-radius: 28px; box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.35); }
+.num { direction: ltr; unicode-bidi: isolate; display: inline-block; }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }

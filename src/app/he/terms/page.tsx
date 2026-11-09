@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "תנאי שימוש", description: "
 
 export default function Terms() {
   return (
-    <LegalPage title="תנאי שימוש" updated="5 בנובמבר 2026">
+    <LegalPage title="תנאי שימוש" updated="9 בנובמבר 2026">
       <p>השימוש ב־Teavon (האפליקציה והאתר) כפוף לתנאים האלה ולתנאי הרישיון הסטנדרטיים של Apple לאפליקציות (Standard EULA). אם אתם לא מסכימים להם, אל תשתמשו בשירות.</p>
       <section>
         <h2>1. השירות</h2>
@@ -28,7 +28,7 @@ export default function Terms() {
       <section>
         <h2>4. חינם ו־Teavon+</h2>
         <ul>
-          <li>בחינם: <span className="num">5</span> ייבואים בשבוע והמחברת.</li>
+          <li>בחינם: <span className="num">3</span> ייבואים בשבוע והמחברת.</li>
           <li>Teavon+ חודשי (<span className="num">₪29.90</span>) או שנתי (<span className="num">₪199.90</span>), לפי המחיר שמוצג ב־App Store בזמן הרכישה.</li>
           <li>התשלום נגבה דרך חשבון ה־Apple ID שלכם. המינוי מתחדש אוטומטית בסוף כל תקופה, אלא אם ביטלתם לפחות <span className="num">24</span> שעות לפני סופה.</li>
           <li>מנהלים ומבטלים בהגדרות האייפון ← Apple ID ← מינויים. בקשות החזר כספי מטופלות על ידי Apple.</li>

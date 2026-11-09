@@ -7,7 +7,7 @@ const heebo = Heebo({ subsets: ["hebrew", "latin"], weight: ["300", "400", "500"
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.teavon.app"),
   title: { default: "Teavon · מתכונים מרילס של אינסטגרם וטיקטוק, בעברית", template: "%s · Teavon" },
-  description: "משתפים רילס מאינסטגרם או מטיקטוק ל־Teavon ומקבלים מתכון מסודר בעברית: מצרכים, כמויות, שלבים וסימון כשרות. 5 ייבואים בשבוע בחינם.",
+  description: "משתפים רילס מאינסטגרם או מטיקטוק ל־Teavon ומקבלים מתכון מסודר בעברית: מצרכים, כמויות, שלבים וסימון כשרות. 3 ייבואים בשבוע בחינם.",
   icons: { icon: "/favicon-32.png", apple: "/apple-touch-icon.png" },
   openGraph: { type: "website", locale: "he_IL", siteName: "Teavon", images: ["/icon-512.png"] },
   other: { "apple-itunes-app": "app-id=6764895483" },

@@ -70,7 +70,7 @@ export default function Home() {
           <div id="download" className="scroll-mt-24 lg:[grid-area:c] lg:self-start">
             <StoreButton />
             <p className="mt-3 text-[13px] text-muted">
-              5 ייבואים בשבוע בחינם. לאייפון.{" "}
+              3 ייבואים בשבוע בחינם. לאייפון.{" "}
               <Notify />
             </p>
           </div>
@@ -153,7 +153,7 @@ export default function Home() {
               <p className="text-[20px] font-bold">חינם</p>
               <p className="mt-1 text-[15px] text-muted">לתמיד</p>
               <ul className="mt-6 space-y-3 text-[16px]">
-                <li><span className="num font-bold">5</span> ייבואים בשבוע</li>
+                <li><span className="num font-bold">3</span> ייבואים בשבוע</li>
                 <li>המחברת וכל המתכונים ששמרתם</li>
                 <li>כמויות לפי מספר המנות</li>
                 <li>סימון בשרי, חלבי או פרווה</li>

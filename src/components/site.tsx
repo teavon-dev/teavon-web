@@ -13,22 +13,21 @@ function AppleMark() {
   );
 }
 
-export function StoreButton({ variant = "solid" }: { variant?: "solid" | "outline" }) {
-  const base = "inline-flex min-h-[52px] items-center gap-3 rounded-full px-6 text-[16px] font-bold transition-colors duration-200";
-  const look = variant === "solid" ? "bg-ink text-white hover:bg-black" : "border-[1.5px] border-ink text-ink hover:bg-fill";
-  const inner = (
-    <>
-      <AppleMark />
-      <span className="leading-tight">
-        <small className="block text-[12px] font-normal opacity-75">{APP_STORE_LIVE ? "להורדה ב־" : "בקרוב ב־"}</small>
-        App Store
+/** Apple's official "Download on the App Store" badge (Hebrew artwork from Apple's marketing toolbox). */
+export function StoreButton({ size = "lg" }: { size?: "lg" | "md"; variant?: "solid" | "outline" }) {
+  const h = size === "lg" ? 56 : 46;
+  if (!APP_STORE_LIVE) {
+    return (
+      <span className="inline-flex min-h-[52px] cursor-default items-center gap-3 rounded-full bg-ink px-6 text-[16px] font-bold text-white" aria-label="בקרוב ב־App Store">
+        <AppleMark />
+        <span className="leading-tight"><small className="block text-[12px] font-normal opacity-75">בקרוב ב־</small>App Store</span>
       </span>
-    </>
-  );
-  return APP_STORE_LIVE ? (
-    <a href={APP_STORE_URL} className={`${base} ${look}`}>{inner}</a>
-  ) : (
-    <span className={`${base} ${look} cursor-default`} aria-label="בקרוב ב־App Store">{inner}</span>
+    );
+  }
+  return (
+    <a href={APP_STORE_URL} className="inline-block transition-transform duration-200 hover:-translate-y-0.5" aria-label="להורדה ב־App Store">
+      <img src="/img/app-store-badge-he.svg" alt="להורדה ב־App Store" height={h} style={{ height: h, width: "auto" }} />
+    </a>
   );
 }
 
@@ -46,7 +45,7 @@ export function Nav({ home = false }: { home?: boolean }) {
     <header className="mx-auto flex h-[72px] max-w-[1160px] items-center justify-between px-4 sm:px-6">
       <Brand />
       <nav aria-label="ניווט ראשי" className="flex items-center gap-7 text-[15px] text-muted">
-        <a href={home ? "#how" : "/he#how"} className="hidden hover:text-ink sm:inline">איך זה עובד</a>
+        <a href="/he/how-it-works" className="hidden hover:text-ink sm:inline">איך זה עובד</a>
         <a href={home ? "#price" : "/he#price"} className="hidden hover:text-ink sm:inline">מחירים</a>
         <a href={home ? "#faq" : "/he#faq"} className="hidden hover:text-ink sm:inline">שאלות</a>
         <a href={home ? "#download" : "/he#download"} className="rounded-full border-[1.5px] border-ink px-4 py-2 text-[14px] font-medium text-ink hover:bg-fill">{APP_STORE_LIVE ? "להורדה" : "בקרוב לאייפון"}</a>

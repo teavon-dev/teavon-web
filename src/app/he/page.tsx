@@ -1,5 +1,6 @@
 import { APP_STORE_LIVE, Footer, Nav, StoreButton, SUPPORT_EMAIL } from "@/components/site";
 import { ScaleDemo } from "@/components/scale-demo";
+import { HowSteps } from "@/components/how-to";
 
 function Caption() {
   return (
@@ -76,27 +77,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 2 · How it works: the real share gesture, three moments of different weight */}
+        {/* 2 · How it works: the real share gesture, step by step */}
         <section id="how" className="scroll-mt-20 bg-surface py-20">
           <div className="mx-auto max-w-[1160px] px-4 sm:px-6">
-            <h2 className="max-w-[18ch] text-[34px] font-extrabold leading-tight tracking-tight sm:text-[44px]">
-              בלי להעתיק, בלי לעצור את הסרטון.
+            <h2 className="max-w-[20ch] text-[34px] font-extrabold leading-tight tracking-tight sm:text-[44px]">
+              איך זה עובד?
+              <span className="block font-light">ארבע לחיצות, בלי לעצור את הסרטון.</span>
             </h2>
-            <ol className="mt-12 grid items-end gap-10 md:grid-cols-[1fr_1.15fr_1fr]">
-              <li>
-                <p className="text-[15px] font-bold text-accent-deep">באינסטגרם או בטיקטוק</p>
-                <p className="mt-1 text-[22px] font-bold leading-snug">לוחצים על שיתוף ובוחרים ב־Teavon.</p>
-                <p className="mt-2 text-[16px] text-muted">או מדביקים את הקישור באפליקציה.</p>
-              </li>
-              <li className="order-first md:order-none">
-                <Shot src="/img/04-import-steps.jpg" alt="מסך הייבוא: קוראים את הפוסט, מאתרים מצרכים, מסדרים שלבים, מתרגמים לעברית" className="mx-auto max-w-[300px]" />
-              </li>
-              <li>
-                <p className="text-[15px] font-bold text-accent-deep">אחרי כמה שניות</p>
-                <p className="mt-1 text-[22px] font-bold leading-snug">המתכון מוכן, מתורגם ומסודר.</p>
-                <p className="mt-2 text-[16px] text-muted">שומרים אותו במחברת בלחיצה, עם קישור לפוסט המקורי.</p>
-              </li>
-            </ol>
+            <HowSteps />
+            <p className="mt-12 text-[16px] text-muted">
+              Teavon לא מופיע בשיתוף, או שמעדיפים להדביק קישור?{" "}
+              <a href="/he/how-it-works" className="font-medium text-ink underline underline-offset-2">המדריך המלא</a>
+            </p>
           </div>
         </section>
 

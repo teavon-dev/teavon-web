@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // Until Apple approves the app, the button says "coming soon" and does not pretend to be a store link.
-export const APP_STORE_LIVE = false;
+export const APP_STORE_LIVE = true;
 export const APP_STORE_URL = "https://apps.apple.com/app/id6764895483";
 export const SUPPORT_EMAIL = "support@teavon.app";
 
